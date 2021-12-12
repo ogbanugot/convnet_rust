@@ -1,0 +1,15 @@
+[package]
+name = "convnet"
+version = "0.1.0"
+authors = ["Ogban <ogbanugot@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.7.3"
+ndarray = "0.13.1"
+ndarray-rand = "0.11.0"
+ndarray-linalg = "0.12.1"
+openblas-src = "0.7" # or another backend of your choice
+ndarray-stats = "0.3.0"
