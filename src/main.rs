@@ -6,7 +6,7 @@
 use ndarray_rand::RandomExt;
 use ndarray_rand::rand_distr::{StandardNormal};
 use ndarray::{Array1, Array2};
-extern crate openblas_src;
+extern crate blas_src;
 fn main() {
     /*
     let mut layer = output::L1d::new(2, 3, "linear");

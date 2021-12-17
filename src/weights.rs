@@ -1,4 +1,4 @@
-use rand::Rng;
+use rand::{thread_rng, Rng};
 use ndarray::{ArrayBase, OwnedRepr, Array2, Ix, Ix2};
 use ndarray_rand::RandomExt;
 use ndarray_rand::rand_distr::{StandardNormal, Normal, Uniform};
@@ -11,7 +11,8 @@ pub struct Weight1d {
 impl Weight1d{
     #![allow(unused)]
     pub fn new() -> Weight1d{
-        let w = rand::thread_rng().gen_range(0.0, 1.0);
+        let mut rng = thread_rng();
+        let w = rng.gen_range(0.0..1.0);
         Weight1d{value:w, gradient:0.0}
     }
     pub fn init(value:f64) ->Weight1d{
@@ -63,12 +64,12 @@ impl Weight{
         let g = Array2::<f64>::zeros((shape[0], shape[1]));
         Weight{value, gradient:g}
     }
-    pub fn get_weight(&self) -> ArrayBase<OwnedRepr<f64>, Ix2> {
-        self.value
-    }
-    pub fn get_gradient(&self)-> ArrayBase<OwnedRepr<f64>, Ix2> {
-        self.gradient
-    }
+    // pub fn get_weight(&self) -> ArrayBase<OwnedRepr<f64>, Ix2> {
+    //     self.value
+    // }
+    // pub fn get_gradient(&self)-> ArrayBase<OwnedRepr<f64>, Ix2> {
+    //     self.gradient
+    // }
 }
 
 pub struct Filter {
